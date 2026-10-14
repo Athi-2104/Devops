@@ -1,5 +1,4 @@
 name: DevOps CI
-
 on:
   push:
     branches:
