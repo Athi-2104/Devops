@@ -1,3 +1,4 @@
+
 name: DevOps CI
 
 on:
@@ -5,7 +6,6 @@ on:
     branches:
       - main
       - development
-
   pull_request:
     branches:
       - main
@@ -22,8 +22,14 @@ jobs:
       - name: Check Git Version
         run: git --version
 
-      - name: Run Test
-        run: |
-          echo "Running CI Tests..."
-          test -f index.html
-          echo "All tests passed!"
+      - name: Test HTML File Exists
+        run: test -f index.html
+
+      - name: Test HTML Content
+        run: grep -q "<html>" index.html
+
+      - name: Test Page Heading
+        run: grep -q "Hello, GitHub Actions!" index.html
+
+      - name: All Tests Passed
+        run: echo "All test cases passed successfully!"
