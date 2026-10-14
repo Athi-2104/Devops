@@ -1,35 +1,11 @@
 
-name: DevOps CI
-
-on:
-  push:
-    branches:
-      - main
-      - development
-  pull_request:
-    branches:
-      - main
-      - development
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Check Git Version
-        run: git --version
-
-      - name: Test HTML File Exists
-        run: test -f index.html
-
-      - name: Test HTML Content
-        run: grep -q "<html>" index.html
-
-      - name: Test Page Heading
-        run: grep -q "Hello, GitHub Actions!" index.html
-
-      - name: All Tests Passed
-        run: echo "All test cases passed successfully!"
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Lab</title>
+</head>
+<body>
+    <h1>Hello, GitHub Actions!</h1>
+    <p>My CI workflow is working.</p>
+</body>
+</html>
